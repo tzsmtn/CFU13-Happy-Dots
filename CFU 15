@@ -1,0 +1,32 @@
+# CodeSkulptor runs Python programs in your browser.
+# Click the upper left button to run this simple demo.
+
+# CodeSkulptor is tested to run in recent versions of
+# Chrome, Firefox, Safari, and Edge.
+
+import simplegui
+
+message = "Welcome!"
+
+# Handler for mouse click
+def click():
+    global message
+    message = "Good job!"
+
+# Handler to draw on canvas
+def draw(canvas):
+    w = 2
+    c = "White"
+
+    canvas.draw_polygon([(50,50),(150,50),(150,150),(50,150)], w, c)
+
+    canvas.draw_polygon([(70,80),(80,80),(80,85),(70,85)], w, c)
+    canvas.draw_polygon([(120,80),(130,80),(130,85),(120,85)], w, c)
+
+    canvas.draw_polygon([(80,120),(100,135),(120,120)], w, c)
+
+frame = simplegui.create_frame("CFU14 Happy Shapes", 200, 200)
+frame.set_draw_handler(draw)
+
+# Start the frame animation
+frame.start()
