@@ -1,0 +1,37 @@
+# CodeSkulptor runs Python programs in your browser.
+# Click the upper left button to run this simple demo.
+
+# CodeSkulptor is tested to run in recent versions of
+# Chrome, Firefox, Safari, and Edge.
+
+import simplegui
+
+message = "Welcome!"
+
+# Handler for mouse click
+def click():
+    global message
+    message = "Good job!"
+
+# Handler to draw on canvas
+def draw(canvas):
+    w = 2
+    c = "White"
+
+    canvas.draw_line([50, 50], [150, 50], w, c)
+    canvas.draw_line([150, 50], [150, 150], w, c)
+    canvas.draw_line([150, 150], [50, 150], w, c)
+    canvas.draw_line([50, 150], [50, 50], w, c)
+
+    canvas.draw_line([70, 80], [80, 80], w, c)
+    canvas.draw_line([120, 80], [130, 80], w, c)
+
+    canvas.draw_line([80, 120], [100, 135], w, c)
+    canvas.draw_line([100, 135], [120, 120], w, c)
+
+frame = simplegui.create_frame("CFU14 Happy Lines", 200, 200)
+frame.add_button("Click me", click)
+frame.set_draw_handler(draw)
+
+# Start the frame animation
+frame.start()
